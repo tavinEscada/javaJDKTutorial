@@ -3,7 +3,7 @@ Este repositório armazena pontos importantes para compilar e executar projetos 
 
 
 
-Os comandos de compilação e execução são os mesmos nos sistemas operacionais; usemos os arquivos Java do repositório como exemplo:
+Os comandos de compilação e execução são os mesmos nos sistemas operacionais; usemos os arquivos Java deste repositório como exemplo:
 Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por espaço, os arquivos .java a serem compilados.
 ```
 javac src/Funcs.java src/Main.java
