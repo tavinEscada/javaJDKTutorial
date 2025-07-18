@@ -1,68 +1,68 @@
 # javaJDKTutorial
-Este repositório armazena pontos importantes para compilar e executar projetos Java no terminal (Windows e Linux), além de uma forma de fazer um projeto que funcione em diferentes IDEs (no caso, VSCode e NetBeans).
+Este repositório armazena pontos importantes para compilar e executar projetos Java no terminal (Windows e Linux).
 ## JDK
-Inicialmente, devemos instalar o [JDK (Java Development Kit)](https://pt.wikipedia.org/wiki/Java_Development_Kit), cujos downloads se encontram no [site da Oracle](https://www.oracle.com/br/java/technologies/downloads/). Se optar por algum update específico (como o JDK 21.0.7, ao invés do mais atual JDK 21.0.8), pode encontrá-lo no Java Archive, de acordo com a versão, em links do tipo [https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html), substituindo o '21' do link pela versão desejada (dentre as disponíveis 11, 17, 21...), se for o caso, com exceção da versão 8, cujos updates antigos se encontram em [https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html).
+Inicialmente, devemos instalar o [JDK (Java Development Kit)](https://pt.wikipedia.org/wiki/Java_Development_Kit). Os [downloads mais recentes](https://www.oracle.com/br/java/technologies/downloads/) são referentes às versões 21 e 24. Se optar por alguma versão anterior (como o JDK 17 ou updates anteriores do 21 e 24), pode encontrá-la no Java Archive:
+* [JDK 8](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
+* [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+* [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+* [Versões antigas do JDK 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+* [Versões antigas do JDK 24](https://www.oracle.com/java/technologies/javase/jdk24-archive-downloads.html)
 
-Caso queira, pode instalar pelo terminal do Linux, usando os comandos abaixo.
-Pesquisar versoes do jdk disponiveis para download no linux
+É possível manejar o JDK pelo terminal, como mostrado a seguir.
+
+### Terminal do Linux
+* Pesquisar versões do JDK disponíveis para download no Linux:
 ```
 apt search openjdk-.*-jdk
 ```
 
-baixar alguma no linux (17 no exemplo abaixo)
+
+* Instalar alguma (como a 17 no exemplo abaixo):
 ```
 sudo apt install openjdk-17-jdk
 ```
 
 
-escolher versao a ser usada, dentre as instaladas no linux
+* Instalar update específico:
 ```
-sudo update-alternatives --config java
+
 ```
 
 
-saber a versao atual do jdk
+* Saber a versão ativa do JDK:
 ```
 java -version
 ```
 
-verificar as versoes ja instaladas no windows:
+* Escolher versão a ser usada, dentre as já instaladas:
+```
+sudo update-alternatives --config java
+```
+
+## Terminal do Windows
+* Verificar versão ativa:
+```
+java -version
+```
+  
+* Verificar as versões já instaladas no Windows:
 ```
 dir "C:\Program Files\Java\"
 ```
-mudar a versao a ser utilizada:
+
+* Mudar a versão a ser utilizada (como a 21 no exemplo abaixo):
 ```
 set JAVA_HOME=C:\Program Files\Java\jdk-21
 ```
-O comando acima mudaria para a versao 21; caso queira outra, basta mudar o número no comando.
 
-
-
+## Compilação e execução
 Os comandos de compilação e execução são os mesmos nos dois sistemas operacionais; usemos os arquivos Java deste repositório como exemplo:
 Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por espaço, os arquivos .java a serem compilados.
 ```
 javac src/Funcs.java src/Main.java
 ```
-Para executar, usamos o comando *java*, seguido de *-cp*, da pasta que contém o arquivo e apenas o nome do arquivo que contém a função *main*:
+Para executar, tenhamos em mente o *arquivo.java* que contém a função *main*; usamos o comando *java*, seguido de *-cp*, do endereço do arquivo - com o nome das pastas separaods por espaço - e, por fim, o nome do arquivo. No caso do projeto no repositório, o comando é:
 ```
 java -cp src Main
 ```
-Observe que o arquivo Java que contém a função *main* possui o nome *Main* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
-
-compilar projeto maven
-```
-javac -d target/classes -cp src/main/java src/main/java/com/github/tavinescada/*.java
-```
-note que a última parte do comando, "com/github/tavinescada", coincide com o *group ID* definido como "com.github.tavinescada". Se o *group ID* fosse "com.example", o comando deveria ser
-```
-javac -d target/classes -cp src/main/java src/main/java/com/example/*.java
-```
-
-Executar o projeto maven
-```
-java -cp target/classes com.github.tavinescada.Main
-```
-note que o comando de execução também deve coincidir com o *group ID*. Se ele fosse "com.example", o comando deveria ser
-```
-java -cp target/classes com.example.Main
-```
+Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
