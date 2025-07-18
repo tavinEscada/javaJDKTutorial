@@ -61,8 +61,19 @@ Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por esp
 ```
 javac src/Funcs.java src/Main.java
 ```
-Para executar, tenhamos em mente o *arquivo.java* que contém a função *main*; usamos o comando *java*, seguido de *-cp*, do endereço do arquivo - com o nome das pastas separaods por espaço - e, por fim, o nome do arquivo. No caso do projeto no repositório, o comando é:
+É possível, nesse caso, compilar os arquivos de forma mais simples: como todos os arquivos em questão estão na mesma pasta, podemos usar
+```
+javac src/*.java
+```
+Assim, selecionamos todos os arquivos.java da pasta src.
+
+Para executar, tenhamos em mente o *arquivo.java* que contém a função *main*. Usamos o comando *java*, seguido de *-cp*, do endereço do arquivo .class referente àquele com a *main* e, por fim, o nome do arquivo. No caso do projeto no repositório, o comando é:
 ```
 java -cp src Main
 ```
 Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
+
+Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, como 'target/classes', onde armazenaremos os arquivos.class que são criados na compilação. Nesse caso, executamos com
+```
+java -cp target/classes Main
+```
