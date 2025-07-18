@@ -39,7 +39,7 @@ java -version
 sudo update-alternatives --config java
 ```
 
-## Terminal do Windows
+### Terminal do Windows
 * Verificar versão ativa:
 ```
 java -version
@@ -57,7 +57,8 @@ set JAVA_HOME=C:\Program Files\Java\jdk-21
 
 ## Compilação e execução
 Os comandos de compilação e execução são os mesmos nos dois sistemas operacionais; usemos os arquivos Java deste repositório como exemplo:
-Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por espaço, os arquivos .java a serem compilados.
+
+* Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por espaço, os arquivos .java a serem compilados.
 ```
 javac src/Funcs.java src/Main.java
 ```
@@ -65,15 +66,21 @@ javac src/Funcs.java src/Main.java
 ```
 javac src/*.java
 ```
-Assim, selecionamos todos os arquivos.java da pasta src.
+Assim, selecionamos todos os arquivos.java da pasta *src*.
 
-Para executar, tenhamos em mente o *arquivo.java* que contém a função *main*. Usamos o comando *java*, seguido de *-cp*, do endereço do arquivo .class referente àquele com a *main* e, por fim, o nome do arquivo. No caso do projeto no repositório, o comando é:
+* Para executar, tenhamos em mente o *arquivo.java* que contém a função *main* e que a compilação cria arquivos .class referentes aos arquivos.java no projeto. Usamos, então, o comando *java*, seguido de *-cp*, da pasta que contém o arquivo .class referente àquele com a *main* e, por fim, o nome do arquivo em questão (no nosso caso, a pasta é *src*, e o arquivo com a *main* tem o nome *Main*). No caso do projeto no repositório, portanto, o comando é:
 ```
 java -cp src Main
 ```
 Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
 
-Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, como 'target/classes', onde armazenaremos os arquivos.class que são criados na compilação. Nesse caso, executamos com
+Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, algo como 'target/classes', onde serão armazenados os arquivos .class que são criados na compilação. Nesse caso, compilamos com
+```
+javac -d target/classes -cp src src/*.java
+```
+de forma a informar o destino (target/classes) dos arquivos .class, e executamos tudo com
 ```
 java -cp target/classes Main
 ```
+visto que nesse caso a pasta que contém o *Main.class* é a *target/classes*.
+
