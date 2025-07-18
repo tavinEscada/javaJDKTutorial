@@ -1,7 +1,7 @@
 # javaJDKTutorial
-Este repositório armazena pontos importantes para compilar e executar projetos Java no terminal (Windows e Linux).
+Este repositório armazena pontos importantes para compilar e executar projetos Java no terminal (Windows e Linux). Note que existem duas classes no repositório, que podem ser usadas como exemplo de teste para os comandos usados.
 ## JDK
-Inicialmente, devemos instalar o [JDK (Java Development Kit)](https://pt.wikipedia.org/wiki/Java_Development_Kit). Os [downloads mais recentes](https://www.oracle.com/br/java/technologies/downloads/) são referentes às versões 21 e 24. Se optar por alguma versão anterior (como o JDK 17 ou updates anteriores do 21 e 24), pode encontrá-la no Java Archive:
+Inicialmente, deve-se instalar o [JDK (Java Development Kit)](https://pt.wikipedia.org/wiki/Java_Development_Kit). Os [downloads mais recentes](https://www.oracle.com/br/java/technologies/downloads/) são referentes às versões 21 e 24. Ao optar por alguma versão anterior (8, 11, e 17, ou updates anteriores do 21 e 24), pode-se encontrá-la no Java Archive:
 * [JDK 8](https://www.oracle.com/br/java/technologies/javase/javase8-archive-downloads.html)
 * [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 * [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
@@ -16,18 +16,15 @@ Inicialmente, devemos instalar o [JDK (Java Development Kit)](https://pt.wikiped
 apt search openjdk-.*-jdk
 ```
 
-
 * Instalar alguma (como a 17 no exemplo abaixo):
 ```
 sudo apt install openjdk-17-jdk
 ```
 
-
-* Instalar update específico:
+* Instalar update específico (JDK 21.0.7, por exemplo):
 ```
-
+sudo apt install openjdk-21-jdk=21.0.7+6~us1-0ubuntu1~24.04 
 ```
-
 
 * Saber a versão ativa do JDK:
 ```
@@ -45,7 +42,7 @@ sudo update-alternatives --config java
 java -version
 ```
   
-* Verificar as versões já instaladas no Windows:
+* Verificar as versões já instaladas:
 ```
 dir "C:\Program Files\Java\"
 ```
@@ -82,5 +79,5 @@ de forma a informar o destino (target/classes) dos arquivos .class, e executamos
 ```
 java -cp target/classes Main
 ```
-visto que nesse caso a pasta que contém o *Main.class* é a *target/classes*.
+visto que nesse caso a pasta que contém o *Main.class* é a target/classes.
 
