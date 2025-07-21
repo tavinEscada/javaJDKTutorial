@@ -69,7 +69,7 @@ Os comandos de compilação e execução são os mesmos nos dois sistemas operac
   ```
   Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
 
-  - Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, algo como 'target/classes', onde serão armazenados os arquivos .class que são criados na compilação. Nesse caso, compilamos com o comando abaixo, de forma a informar o destino (*-d target/classes*) dos arquivos .class:
+  - Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, algo como 'target/classes', onde serão armazenados os arquivos .class que são criados na compilação. Nesse caso, compilamos com ```javac -d```, de forma a informar também o destino (*target/classes*) dos arquivos .class, e com ```-cp``` e os arquivos a serem compilados. O comando completo, então, é:
     ```
     javac -d target/classes -cp src src/*.java
     ```
