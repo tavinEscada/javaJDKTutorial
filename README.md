@@ -12,72 +12,69 @@ Inicialmente, deve-se instalar o [JDK (Java Development Kit)](https://pt.wikiped
 
 ### Terminal do Linux
 * Pesquisar versões do JDK disponíveis para download no Linux:
-```
-apt search openjdk-.*-jdk
-```
+  ```
+  apt search openjdk-.*-jdk
+  ```
 
 * Instalar alguma (como a 17 no exemplo abaixo):
-```
-sudo apt install openjdk-17-jdk
-```
+  ```
+  sudo apt install openjdk-17-jdk
+  ```
 
 * Instalar update específico (JDK 21.0.7, por exemplo):
-```
-sudo apt install openjdk-21-jdk=21.0.7+6~us1-0ubuntu1~24.04 
-```
+  ```
+  sudo apt install openjdk-21-jdk=21.0.7+6~us1-0ubuntu1~24.04 
+  ```
 
 * Saber a versão ativa do JDK:
-```
-java -version
-```
+  ```
+  java -version
+  ```
 
 * Escolher versão a ser usada, dentre as já instaladas:
-```
-sudo update-alternatives --config java
-```
+  ```
+  sudo update-alternatives --config java
+  ```
 
 ### Terminal do Windows
 * Verificar versão ativa:
-```
-java -version
-```
+  ```
+  java -version
+  ```
   
 * Verificar as versões já instaladas:
-```
-dir "C:\Program Files\Java\"
-```
+  ```
+  dir "C:\Program Files\Java\"
+  ```
 
 * Mudar a versão a ser utilizada (como a 21 no exemplo abaixo):
-```
-set JAVA_HOME=C:\Program Files\Java\jdk-21
-```
+  ```
+  set JAVA_HOME=C:\Program Files\Java\jdk-21
+  ```
 
 ## Compilação e execução
 Os comandos de compilação e execução são os mesmos nos dois sistemas operacionais; usemos os arquivos Java deste repositório como exemplo:
 
 * Para compilar, é usado o comando *javac* do JDK, e digitamos, separados por espaço, os arquivos .java a serem compilados.
-```
-javac src/Funcs.java src/Main.java
-```
-É possível, nesse caso, compilar os arquivos de forma mais simples: como todos os arquivos em questão estão na mesma pasta, podemos usar
-```
-javac src/*.java
-```
-Assim, selecionamos todos os arquivos.java da pasta *src*.
-
+  ```
+  javac src/Funcs.java src/Main.java
+  ```
+  É possível, nesse caso, compilar os arquivos de forma mais simples: como todos os arquivos em questão estão na mesma pasta, podemos usar o comando abaixo, de forma a selecionar todos os arquivos.java da pasta *src*.
+  ```
+  javac src/*.java
+  ```
 * Para executar, tenhamos em mente o *arquivo.java* que contém a função *main* e que a compilação cria arquivos .class referentes aos arquivos.java no projeto. Usamos, então, o comando *java*, seguido de *-cp*, da pasta que contém o arquivo .class referente àquele com a *main* e, por fim, o nome do arquivo em questão (no nosso caso, a pasta é *src*, e o arquivo com a *main* tem o nome *Main*). No caso do projeto no repositório, portanto, o comando é:
-```
-java -cp src Main
-```
-Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
+  ```
+  java -cp src Main
+  ```
+  Observe que o arquivo que contém a função *main* possui o nome *Main.java* nesse caso, mas não é necessário que ele seja nomeado dessa forma.
 
-Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, algo como 'target/classes', onde serão armazenados os arquivos .class que são criados na compilação. Nesse caso, compilamos com
-```
-javac -d target/classes -cp src src/*.java
-```
-de forma a informar o destino (target/classes) dos arquivos .class, e executamos tudo com
-```
-java -cp target/classes Main
-```
-visto que nesse caso a pasta que contém o *Main.class* é a target/classes.
-
+  - Para fins de organização, podemos criar, na pasta do projeto, um diretório auxiliar, algo como 'target/classes', onde serão armazenados os arquivos .class que são criados na compilação. Nesse caso, compilamos com o comando abaixo, de forma a informar o destino (*-d target/classes*) dos arquivos .class:
+    ```
+    javac -d target/classes -cp src src/*.java
+    ```
+    Assim, executamos com
+    ```
+    java -cp target/classes Main
+    ```
+    visto que nesse caso a pasta que contém o *Main.class* é a target/classes.
